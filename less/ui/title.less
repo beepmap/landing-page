@@ -1,0 +1,56 @@
+.title:before{
+    content: "";
+    display: block;
+    padding-top: 41.5%;
+    z-index: 0;
+}
+
+.title-img-content {
+    position:  absolute;
+    height: 560px;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 0;
+
+    img {
+        width: 100%;
+        height: auto; 
+    }
+
+    span {
+        background-color: grey;
+        display: block;
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.title-headlines {
+    position: absolute;
+    text-align: center;
+    top: (@grid * 6);
+    left: 50%;
+    margin-left: -470px;
+    color: #FFF;
+
+    h1 {
+        font-size: 6.667em;
+        line-height: 0.666em;
+        text-transform: uppercase;
+        margin: (@grid * 3) 0;
+    }
+
+    p {
+        font-size: 2.222em;
+        line-height: 1em;
+    }
+}
+
+.logo {
+    display: inline-block;
+    width: 245px;
+    height: 50px;
+    background-color: #FFF;
+}

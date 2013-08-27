@@ -1,0 +1,67 @@
+.opportunities {
+	height: 520px;
+	background-color: @colorAccent;
+	position: relative;
+}
+
+.car {
+	width: 472.404px;
+	height: 196.202px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin: -93.101px 0 0 -236.202px;
+}
+
+.bubble {
+	height: (@grid * 2);
+	position: absolute;
+	z-index: 1;
+	background-color: #FFF; 
+	padding: 0 @grid;
+}
+
+.highlight {
+	color: @colorAccent;
+}
+
+.opportunity {
+	text-transform: uppercase;
+	font-size: 1.111em;
+	line-height: 44px;
+	white-space: nowrap;
+}
+
+.left {
+	top: -(@grid / 2);
+	left: -(@grid * 12);
+
+	.arrow {
+		top: (@grid * 2 - 5);
+		right: -@grid;
+	}
+}
+
+.right {
+	top: -53px;
+	right: -227px;
+
+	.arrow {
+		left: -(@grid * 3);
+		top: (@grid * 2 - 5);
+	}
+}
+
+.bottom {
+	bottom: -74px;
+	left: 230px;
+
+	.arrow {
+		bottom: (@grid + 5);
+		left: 5px;
+	}
+}
+
+.arrow {
+	position: absolute;
+}

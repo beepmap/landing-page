@@ -7,9 +7,7 @@ $(document).ready(function() {
 
 		manageSlideFixation = function (fixer) {
 			for (var i = fixer; i >= 0; i--) {
-				if (i != 0) {
-					$sections.get(fixer).style["top"] = 0;
-				}
+				$sections.get(fixer).style["top"] = 0;
 				$sections.get(i).style["position"] = "fixed";
 				$sections.get(i).style["zIndex"] = fixer - l;
 			}

@@ -9,7 +9,7 @@ $(document).ready(function() {
 				logical: 0
 			},
 			{
-				children: 2,
+				children: 3,
 				cb: function() {
 					bubble(".bubble.left");
 				},
@@ -28,7 +28,10 @@ $(document).ready(function() {
 				parent: 1
 			},
 			{
-				children: 3,
+				parent: 1
+			},
+			{
+				children: 4,
 				cb: phone,
 				logical: 2
 			},
@@ -42,6 +45,9 @@ $(document).ready(function() {
 			},
 			{
 				cb: phone,
+				parent: 2
+			},
+			{
 				wontFix: true,
 				parent: 2
 			},

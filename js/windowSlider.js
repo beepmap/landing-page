@@ -58,12 +58,10 @@ WindowSlider.prototype.manageSlideFixation = function (fixer) {
 
 WindowSlider.prototype.fixSlide = function(slide) {
 	this.$sections.get(slide).style["top"] = 0;
-	this.$sections.get(slide).style["position"] = "fixed";
-	this.$sections.get(slide).style["zIndex"] = slide - 10;	
+	this.$sections.get(slide).style["position"] = "fixed";	
 }
 
 WindowSlider.prototype.setSlideTop = function(slide, top) {
 	this.$sections.get(slide).style["top"] = top + "px";
 	this.$sections.get(slide).style["position"] = "";
-	this.$sections.get(slide).style["zIndex"] = "";
 }

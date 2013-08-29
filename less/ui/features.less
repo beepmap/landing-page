@@ -1,43 +1,69 @@
 .features {
-	background-color: #FFF;
-	
-	h2 {
-		font-size: 3.111em;
-		line-height: 1em;
-		text-align: center;
+	background-color: @colorAccent;
+}
+
+.car {
+	width: 472.404px;
+	height: 196.202px;
+	position: relative;
+	margin: auto;
+}
+
+.bubble {
+	height: (@grid * 2);
+	position: absolute;
+	z-index: 1;
+	background-color: #FFF; 
+	padding: 0 @grid;
+	.transition(all, 300ms);
+	opacity: 0;
+
+	&.active {
+		opacity: 1;
 	}
 }
 
-.slideshow {
-	margin-top: (@grid * 3);
+.highlight {
+	color: @colorAccent;
 }
 
-.description {
-	width: 320px;
-	float: left;
-	text-align: left;
-	margin-top: (@grid * 2);
+.opportunity {
+	text-transform: uppercase;
+	font-size: 1.111em;
+	line-height: 44px;
+	white-space: nowrap;
+}
 
-	h3 {
-		font-size: 1.444em;
+.left {
+	top: -(@grid / 2);
+	left: -(@grid * 12);
+
+	.arrow {
+		top: (@grid * 2 - 5);
+		right: -@grid;
 	}
 }
 
-.viewer {
-	width: 206px;
-    position: relative;
-    margin: auto;
+.right {
+	top: -53px;
+	right: -227px;
+
+	.arrow {
+		left: -(@grid * 3);
+		top: (@grid * 2 - 5);
+	}
 }
 
-.num {
-	margin-bottom: 5px;
+.bottom {
+	bottom: -74px;
+	left: 230px;
+
+	.arrow {
+		bottom: (@grid + 5);
+		left: 5px;
+	}
 }
 
-.hr {
-	margin-bottom: 5px;
-}
-
-.controls {
-	float: right;
-	margin-top: (@grid * 5);
+.arrow {
+	position: absolute;
 }

@@ -1,5 +1,7 @@
 $(document).ready(function() {
-	var bubble = function(num) {console.log("bubble", num)},
+	var bubble = function(selector) {
+			$(selector).addClass("active");	
+		},
 		phone = function(num) {console.log("phone", num)}, 
 		slides = [
 			{
@@ -8,15 +10,21 @@ $(document).ready(function() {
 			},
 			{
 				children: 2,
-				cb: bubble,
+				cb: function() {
+					bubble(".bubble.left");
+				},
 				logical: 1
 			},
 			{
-				cb: bubble,
+				cb: function() {
+					bubble(".bubble.right");
+				},
 				parent: 1
 			},
 			{
-				cb: bubble,
+				cb: function() {
+					bubble(".bubble.bottom");
+				},
 				parent: 1
 			},
 			{

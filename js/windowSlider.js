@@ -1,14 +1,14 @@
-var WindowSlider = function(selector, limit) {
+var WindowSlider = function(selector, slideDesc) {
 	var self = this;
 
 	self.$w = $(window);
-	self.$sections = $(selector),
-	self.l = self.$sections.length;
-	self.scrollUntil = limit ? limit : self.l;
-	self.lastF = null,
+	self.$sections = $(selector);
+	self.slideDesc = slideDesc; 
+	self.lastF = 0;
 	self.h = null;
 
-	self.$w.on("resize", function() {
+	self.$w
+		.on("resize", function() {
 			self.h = self.$w.height();
 			self.manageSlideFixation(self.lastF);
 		})
@@ -27,19 +27,39 @@ var WindowSlider = function(selector, limit) {
 }
 
 WindowSlider.prototype.manageSlideFixation = function (fixer) {
-	if (fixer >= this.scrollUntil) {
-		return;
+	var topPrev = 0,
+		curSlide = this.slideDesc[fixer],
+		limiter = curSlide.logical != undefined ? curSlide.logical : curSlide.parent;
+
+	for (var i in this.slideDesc) {
+		var slide = this.slideDesc[i];
+
+		if (curSlide.wontFix && slide.logical == limiter) {
+			var top = parseInt(this.$sections.get(slide.logical + 1).style["top"]) - this.h;
+			
+			this.$sections.get(slide.logical).style["top"] = top + "px";
+			this.$sections.get(slide.logical).style["position"] = "";
+			this.$sections.get(slide.logical).style["zIndex"] = "";
+
+			this.$sections.get(slide.logical + 1).style["top"] = top + "px";
+			break;
+		}
+
+		if (slide.hasOwnProperty("logical")) {
+			if (slide.logical <= limiter) {
+				this.$sections.get(slide.logical).style["top"] = 0;
+				this.$sections.get(slide.logical).style["position"] = "fixed";
+				this.$sections.get(slide.logical).style["zIndex"] = slide.logical - 10;	
+			} else {
+				this.$sections.get(slide.logical).style["top"] = topPrev + "px";
+				this.$sections.get(slide.logical).style["position"] = "";
+				this.$sections.get(slide.logical).style["zIndex"] = "";
+			}
+			topPrev += this.h * (slide.children + 1);
+		}
 	}
 
-	for (var i = fixer; i >= 0; i--) {
-		this.$sections.get(fixer).style["top"] = 0;
-		this.$sections.get(i).style["position"] = "fixed";
-		this.$sections.get(i).style["zIndex"] = fixer - this.l;
-	}
-
-	for (var i = fixer + 1; i < this.l; i++) {
-		this.$sections.get(i).style["top"] = (i == this.l - 1 ? (i - 1) * this.h : i * this.h) + "px";
-		this.$sections.get(i).style["position"] = "";
-		this.$sections.get(i).style["zIndex"] = "";
+	if (curSlide.cb != undefined) {
+		curSlide.cb();
 	}
 }

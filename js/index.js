@@ -7,24 +7,17 @@ $(document).ready(function() {
 			{},
 			{
 				children: 3,
-				cb: function() {
-					bubble(".bubble.left");
-				}
+				cb: function() { bubble(".bubble.left"); }
 			},
 			{
-				cb: function() {
-					bubble(".bubble.right");
-				}
+				cb: function() { bubble(".bubble.right"); }
 			},
 			{
-				cb: function() {
-					bubble(".bubble.bottom");
-				}
+				cb: function() { bubble(".bubble.bottom"); }
 			},
 			{},
 			{
 				children: 4,
-				scrollOnEnd: true,
 				stopFix: true,
 				cb: phone
 			},
@@ -36,7 +29,7 @@ $(document).ready(function() {
 			},
 			{
 				cb: phone,
-				
+
 			},
 			{},
 			{}

@@ -43,22 +43,22 @@ var WindowSlider = function(selector, slideDesc) {
 };
 
 WindowSlider.prototype.manageSlideFixation = function (index) {
-	var currSlide = this.slideDesc[index];
+	var i, currSlide = this.slideDesc[index];
 
 	if (currSlide.stopFix && this.slideDesc[index + 1].$b) {
 		var k = 0;
-		for (var i = index; i < this.slideDesc.length; i++) {
+		for (i = index; i < this.slideDesc.length; i++) {
 			this.slideDesc[i].$b.css({
 				top: index * this.h  + "px",
 				position: ""
 			});
 		}
 	} else {
-		for(var i in this.slideDesc) {
+		for(i in this.slideDesc) {
 			var slide = this.slideDesc[i];
 
 			if(slide.$b) {
-				if(i <= index && slide.fixed !== false) {
+				if(i <= index) {
 					slide.$b.css({
 						top: 0,
 						position: "fixed"

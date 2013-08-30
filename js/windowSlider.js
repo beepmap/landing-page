@@ -8,7 +8,6 @@ var WindowSlider = function(selector, slideDesc) {
 	self.slideDesc = slideDesc;
 	self.lastF = 0;
 	self.h = null;
-	self.dh = null;
 
 	var slideNum = 0,
 		skip = 0,
@@ -44,34 +43,41 @@ var WindowSlider = function(selector, slideDesc) {
 };
 
 WindowSlider.prototype.manageSlideFixation = function (index) {
-	var self = this,
-		k;
-
 	var currSlide = this.slideDesc[index];
 
-	for(var i in this.slideDesc) {
-		var slide = this.slideDesc[i];
+	if (currSlide.stopFix && this.slideDesc[index + 1].$b) {
+		var k = 0;
+		for (var i = index; i < this.slideDesc.length; i++) {
+			this.slideDesc[i].$b.css({
+				top: index * this.h  + "px",
+				position: ""
+			});
+		}
+	} else {
+		for(var i in this.slideDesc) {
+			var slide = this.slideDesc[i];
 
-		if(slide.$b) {
-			if(i <= index && slide.fixed !== false) {
-				slide.$b.css({
-					top: 0,
-					position: "fixed"
-				});
-			}
+			if(slide.$b) {
+				if(i <= index && slide.fixed !== false) {
+					slide.$b.css({
+						top: 0,
+						position: "fixed"
+					});
+				}
 
-			if(i > index) {
-				slide.$b.css({
-					top: i * this.h + "px",
-					position: ""
-				});
+				if(i > index) {
+					slide.$b.css({
+						top: i * this.h + "px",
+						position: ""
+					});
+				}
 			}
 		}
 	}
 
 	if(!currSlide.$b) {
-		self.slideDesc.splice(index, 1);
-		$w.scrollTop(self.h * (index - 1));
+		this.slideDesc.splice(index, 1);
+		$w.scrollTop(this.h * (index - 1));
 	}
 
 	if(currSlide.cb !== undefined) {

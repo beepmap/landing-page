@@ -25,6 +25,7 @@ $(document).ready(function() {
 			{
 				children: 4,
 				scrollOnEnd: true,
+				stopFix: true,
 				cb: phone
 			},
 			{
@@ -34,12 +35,11 @@ $(document).ready(function() {
 				cb: phone
 			},
 			{
-				cb: phone
+				cb: phone,
+				
 			},
 			{},
-			{
-				fixed: true
-			}
+			{}
 	];
 
 	new WindowSlider("section", slides);

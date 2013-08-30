@@ -52,7 +52,10 @@ WindowSlider.prototype.manageSlideFixation = function (fixer) {
 	}
 
 	if (curSlide.cb != undefined) {
-		curSlide.cb();
+		setTimeout(function() {
+			curSlide.cb();
+		}, 50);
+		
 	}
 }
 

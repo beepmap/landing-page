@@ -3,14 +3,27 @@
 	overflow: hidden;
 
 	h2 {
+		position: relative;
 		font-size: 3.111em;
 		line-height: 1em;
-		text-align: center;
+		z-index: 1;
 	}
 }
 
 .overview-wrapper {
 	margin: -272px 0 0 -470px;
+	text-align: center
+}
+
+.overview-title {
+	display: inline-block;
+	position: relative;
+
+	.arrow {
+		position: absolute;
+		right: 0;
+		top: -20px;
+	}
 }
 
 .slideshow {

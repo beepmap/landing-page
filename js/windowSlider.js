@@ -35,7 +35,6 @@ var WindowSlider = function(selector, slideDesc) {
 		.on("scroll", function() {
 			var s = $w.scrollTop(),
 				curF = Math.floor(s / self.h);
-
 			if(curF >= 0 && curF !== self.lastF) {
 				self.manageSlideFixation(curF);
 				self.lastF = curF;
@@ -50,10 +49,6 @@ WindowSlider.prototype.manageSlideFixation = function (index) {
 
 	var currSlide = this.slideDesc[index];
 
-	if(!currSlide.$b) {
-		k = $w.scrollTop() / self.dh;
-	}
-
 	for(var i in this.slideDesc) {
 		var slide = this.slideDesc[i];
 
@@ -65,7 +60,7 @@ WindowSlider.prototype.manageSlideFixation = function (index) {
 				});
 			}
 
-			if(i > index && !slide.fixed) {
+			if(i > index) {
 				slide.$b.css({
 					top: i * this.h + "px",
 					position: ""
@@ -76,11 +71,8 @@ WindowSlider.prototype.manageSlideFixation = function (index) {
 
 	if(!currSlide.$b) {
 		self.slideDesc.splice(index, 1);
-		self.dh = $d.height();
-		$w.scrollTop(self.dh * k);
+		$w.scrollTop(self.h * (index - 1));
 	}
-
-	console.log(self.slideDesc.length);
 
 	if(currSlide.cb !== undefined) {
 		setTimeout(function() {

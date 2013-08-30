@@ -36,7 +36,10 @@ $(document).ready(function() {
 			{
 				cb: phone
 			},
-			{}
+			{},
+			{
+				fixed: true
+			}
 	];
 
 	new WindowSlider("section", slides);

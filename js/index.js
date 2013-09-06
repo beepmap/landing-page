@@ -11,22 +11,22 @@ $(document).ready(function() {
 			{},
 			{
 				children: 3,
-				cb: function() { bubble(".bubble.left"); }
+				cb: function() { bubble(".car .bubble.left"); }
 			},
 			{
-				cb: function() { bubble(".bubble.right"); }
+				cb: function() { bubble(".car .bubble.right"); }
 			},
 			{
-				cb: function() { bubble(".bubble.bottom"); }
+				cb: function() { bubble(".car .bubble.bottom"); }
 			},
 			{},
 			{
 				children: 4,
 				stopFix: true,
-				cb: function() { pic(0); } 
+				cb: function() { pic(0); bubble(".overview .bubble.left"); } 
 			},
 			{
-				cb: function() { pic(1); } 
+				cb: function() { pic(1); bubble(".overview .bubble.right"); } 
 			},
 			{
 				cb: phone

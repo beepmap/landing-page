@@ -8,6 +8,43 @@
 		line-height: 1em;
 		z-index: 1;
 	}
+	
+	.left, .right {
+		.arrow {
+			width: 224px;
+			height: 186px;
+		}
+	}
+
+	.left {
+		top: 15%;
+		left: 15%;
+
+		.arrow {
+			top: -30px;
+			right: -3px;
+		}
+	}
+
+	.right {
+	    right: 13%;
+	    top: 48%;
+
+		.arrow {
+		    left: -13px;
+		    top: -50px;
+		}
+	}
+	
+	.opportunity {
+		color: @colorBlue;
+		font-size: 1.667em;
+		line-height: 1em;
+		text-align: center;
+		width: 180px;
+		position: relative;
+		z-index: 1;
+	}
 }
 
 .overview-title {
@@ -51,12 +88,4 @@
 
 .phone-wrapper {
 	display: inline;
-}
-
-.phone-bubble {
-	position: absolute;
-	color: @colorBlue;
-	font-size: 1.667em;
-	text-align: center;
-	width: 300px;
 }

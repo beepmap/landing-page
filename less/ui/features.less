@@ -3,15 +3,21 @@
 }
 
 .car {
-	width: 641.094px;
-	height: 281.090px;
-	margin: -140.545px 0 0 -320.547px;
+    width: @sizeL;
+    height: @sizeL * @aspect;
+    margin: -(@sizeL * @aspect / 2 ) 0 0 -(@sizeL / 2);
+    text-align: center;
+
+	& > svg {
+		width: 66%;
+		height: 100%;
+	}
 }
 
 .bubble {
-	height: (@grid * 2);
+	//height: (@grid * 2);
 	position: absolute;
-	background-color: #FFF; 
+	background-color: #FFF;
 	padding: 0 @grid;
 	.transition(all, 300ms);
 	opacity: 0;
@@ -28,13 +34,27 @@
 .opportunity {
 	text-transform: uppercase;
 	font-size: 1.111em;
-	line-height: 44px;
+	line-height: 40px;
 	white-space: nowrap;
 }
 
+.left, .right {
+	.arrow {
+		width: 92px;
+		height: 84px;
+	}
+}
+
+.bottom {
+	.arrow {
+		width: 34px;
+		height: 120px;
+	}
+}
+
 .left {
-	top: -4%;
-	left: -21%;
+	top: 15%;
+	left: 6%;
 
 	.arrow {
 		top: (@grid * 2 - 5);
@@ -43,18 +63,19 @@
 }
 
 .right {
-	top: -19%;
-	right: -35%;
+	top: 10%;
+	right: 2%;
 
 	.arrow {
 		left: -(@grid * 3);
 		top: (@grid * 2 - 5);
+
 	}
 }
 
 .bottom {
-	bottom: -18%;
-	left: 41%;
+	bottom: 11%;
+	left: 51%;
 
 	.arrow {
 		bottom: (@grid + 5);
@@ -64,4 +85,64 @@
 
 .arrow {
 	position: absolute;
+	svg {
+		width: 100%;
+		height: 100%;
+	}
+}
+
+
+@media screen and (max-width: (@sizeL + @sizeGap)) {
+    .car {
+        width: @sizeM;
+        height: @sizeM * @aspect;
+        margin: -(@sizeM * @aspect / 2 ) 0 0 -(@sizeM / 2);
+    }
+
+    .opportunity {
+		font-size: (1.111em * 0.8);
+		line-height: (40px * 0.8);
+    }
+
+	.left, .right {
+		.arrow {
+			width: (92px * 0.8);
+			height: (84px * 0.8);
+		}
+	}
+
+	.bottom {
+		.arrow {
+			width: (34px * 0.8);
+			height: (113px * 0.8);
+		}
+	}
+
+}
+
+@media screen and (max-width: (@sizeM + @sizeGap)) {
+    .car {
+        width: @sizeS;
+        height: @sizeS * @aspect;
+        margin: -(@sizeS * @aspect / 2 ) 0 0 -(@sizeS / 2);
+    }
+
+    .opportunity {
+		font-size: (1.111em * 0.6);
+		line-height: (40px * 0.6);
+    }
+
+	.left, .right {
+		.arrow {
+			width: (92px * 0.6);
+			height: (84px * 0.6);
+		}
+	}
+
+	.bottom {
+		.arrow {
+			width: (34px * 0.6);
+			height: (113px * 0.6);
+		}
+	}
 }

@@ -11,20 +11,53 @@
 }
 
 .title-headlines {
+    width: @sizeL;
+    height: @sizeL * @aspect;
+    margin: -(@sizeL * @aspect / 2 ) 0 0 -(@sizeL / 2);
+
     text-align: center;
     color: #FFF;
-    margin: 7% 0 0 -42.8%;
     position: relative;
     left: 50%;
+    top: 50%;
 
     h1 {
-        font-size: 6.667em;
+        font-size: 7em;
         line-height: 0.666em;
-        margin: (@grid * 3) 0;
+        margin: (@grid * 4) 0;
     }
 
     p {
-        font-size: 2.222em;
+        font-size: 2.4em;
         line-height: 1em;
+    }
+}
+
+
+@media screen and (max-width: (@sizeL + @sizeGap)) {
+    .title-headlines {
+        width: @sizeM;
+        height: @sizeM * @aspect;
+        margin: -(@sizeM * @aspect / 2 ) 0 0 -(@sizeM / 2);
+
+        h1 {
+            font-size: (7em * 0.8);
+            margin: (@grid * 3) 0;
+        }
+        p {font-size: (2.4em * 0.8);}
+    }
+}
+
+@media screen and (max-width: (@sizeM + @sizeGap)) {
+    .title-headlines {
+        width: @sizeS;
+        height: @sizeS * @aspect;
+        margin: -(@sizeS * @aspect / 2 ) 0 0 -(@sizeS / 2);
+
+        h1 {
+            font-size: (7em * 0.6);
+            margin: (@grid * 2) 0;
+        }
+        p {font-size: (2.4em * 0.6);}
     }
 }

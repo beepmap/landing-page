@@ -1,7 +1,11 @@
 $(document).ready(function() {
-	var bubble = function(selector) {
+	var $pics = $(".slides img");
+		bubble = function(selector) {
 			$(selector).addClass("active");
 		},
+		pic = function(num) {
+			$pics.eq(num).addClass("active");
+		}
 		phone = function(num) {console.log("phone", num)},
 		slides = [
 			{},
@@ -19,21 +23,33 @@ $(document).ready(function() {
 			{
 				children: 4,
 				stopFix: true,
-				cb: phone
+				cb: function() { pic(0); } 
+			},
+			{
+				cb: function() { pic(1); } 
 			},
 			{
 				cb: phone
 			},
 			{
 				cb: phone
-			},
-			{
-				cb: phone,
-
 			},
 			{},
 			{}
 	];
 
 	new WindowSlider("section", slides);
+
+	$(window).on("resize", function() {
+		var width = null;
+		$pics.each(function(i, el) {
+			var $el = $(el);
+			if (!width) {
+				width = $el.width();
+			}
+			$(el).css({
+				'margin-left': -width/2 + "px"
+			})
+		})
+	}).trigger("resize");
 });

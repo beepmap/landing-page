@@ -21,7 +21,7 @@ $(document).ready(function() {
 			},
 			{},
 			{
-				children: 4,
+				children: 5,
 				stopFix: true,
 				cb: function() { pic(0); bubble(".overview .bubble.left"); } 
 			},
@@ -29,10 +29,13 @@ $(document).ready(function() {
 				cb: function() { pic(1); bubble(".overview .bubble.right"); } 
 			},
 			{
-				cb: phone
+				cb: function() { pic(2); } 
 			},
 			{
-				cb: phone
+				cb: function() { pic(3); } 
+			},
+						{
+				cb: function() { pic(4); } 
 			},
 			{},
 			{}

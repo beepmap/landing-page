@@ -61,3 +61,18 @@
         p {font-size: (2.4em * 0.6);}
     }
 }
+
+
+@media screen and (max-width: (@sizeM + @sizeGap))  and (max-height: (@sizeM + @sizeGap)) {
+    .title-headlines {
+        width: @sizeS;
+        height: @sizeS * @aspect;
+        margin: -(@sizeS * @aspect / 2 ) 0 0 -(@sizeS / 2);
+
+        h1 {
+            font-size: (7em * 0.6);
+            margin: (@grid * 2) 0;
+        }
+        p {font-size: (2.4em * 0.6);}
+    }
+}

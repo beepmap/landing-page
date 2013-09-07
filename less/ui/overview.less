@@ -8,7 +8,7 @@
 		line-height: 1em;
 		z-index: 1;
 	}
-	
+
 	.left, .right {
 		.arrow {
 			width: 224px;
@@ -35,7 +35,7 @@
 		    top: -50px;
 		}
 	}
-	
+
 	.opportunity {
 		color: @colorBlue;
 		font-size: 1.667em;
@@ -61,23 +61,26 @@
 
 .viewer {
 	height: 100%;
-    position: relative;
     text-align: center;
+
+	.iphone {
+		width: @sizeL;
+		position: relative;
+		margin: 0 auto;
+	}
+
 }
 
 .slides {
-	height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
+	height: 90.65%;
+	left: 50%;
+	position: absolute;
+	top: 4.5%;
 
 	img {
-    	height: 91.05%;
-    	position: absolute;
-    	background-color: #FFF;
-	    left: 50.19%;
-	    top: 4.5%;
+    	height: 100%;
+		position: absolute;
+		border: 2px #e4e7eb solid;
 	    .fadeout();
     }
 
@@ -112,7 +115,7 @@
 
 		.left {
 			left: (15% * 0.8);
-			
+
 			.arrow {
 			    right: 2px;
 			    top: -29px;

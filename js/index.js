@@ -23,19 +23,19 @@ $(document).ready(function() {
 			{
 				children: 5,
 				stopFix: true,
-				cb: function() { pic(0); bubble(".overview .bubble.left"); } 
+				cb: function() { pic(0); bubble(".overview .bubble.left"); }
 			},
 			{
-				cb: function() { pic(1); bubble(".overview .bubble.right"); } 
+				cb: function() { pic(1); bubble(".overview .bubble.right"); }
 			},
 			{
-				cb: function() { pic(2); } 
+				cb: function() { pic(2); }
 			},
 			{
-				cb: function() { pic(3); } 
+				cb: function() { pic(3); }
 			},
 						{
-				cb: function() { pic(4); } 
+				cb: function() { pic(4); }
 			},
 			{},
 			{}
@@ -43,7 +43,7 @@ $(document).ready(function() {
 
 	new WindowSlider("section", slides);
 
-	$(window).on("resize", function() {
+/*	$(window).on("resize", function() {
 		var width = null;
 		$pics.each(function(i, el) {
 			var $el = $(el);
@@ -54,5 +54,5 @@ $(document).ready(function() {
 				'margin-left': -width/2 + "px"
 			})
 		})
-	}).trigger("resize");
+	}).trigger("resize");*/
 });

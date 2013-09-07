@@ -633,6 +633,20 @@ section {
     font-size: 1.44em;
   }
 }
+@media screen and (max-width: 840px) and (max-height: 840px) {
+  .title-headlines {
+    width: 600px;
+    height: 300px;
+    margin: -150px 0 0 -300px;
+  }
+  .title-headlines h1 {
+    font-size: 4.2em;
+    margin: 40px 0;
+  }
+  .title-headlines p {
+    font-size: 1.44em;
+  }
+}
 .features {
   background-color: #30d874;
 }
@@ -802,22 +816,23 @@ section {
 }
 .viewer {
   height: 100%;
-  position: relative;
   text-align: center;
 }
+.viewer .iphone {
+  width: 1000px;
+  position: relative;
+  margin: 0 auto;
+}
 .slides {
-  height: 100%;
-  left: 0;
+  height: 90.65%;
+  left: 50%;
   position: absolute;
-  top: 0;
-  width: 100%;
+  top: 4.5%;
 }
 .slides img {
-  height: 91.05%;
+  height: 100%;
   position: absolute;
-  background-color: #FFF;
-  left: 50.19%;
-  top: 4.5%;
+  border: 2px #e4e7eb solid;
   visibility: hidden;
   opacity: 0;
   -webkit-transition: visibility 0s ease-in-out 0.3s, opacity 0.3s ease-in-out;
@@ -902,7 +917,7 @@ section {
 }
 .footer .left,
 .footer .right {
-  width: 120px;
+  width: 140px;
 }
 .footer .left {
   float: left;

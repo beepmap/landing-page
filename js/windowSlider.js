@@ -34,9 +34,10 @@ var WindowSlider = function(selector, slideDesc) {
 		.on("scroll", function() {
 			var s = $w.scrollTop(),
 				curF = Math.floor(s / self.h);
+
 			if(curF >= 0 && curF !== self.lastF) {
-				self.manageSlideFixation(curF);
 				self.lastF = curF;
+				self.manageSlideFixation(curF);
 			}
 		})
 		.trigger("resize");
@@ -83,6 +84,7 @@ WindowSlider.prototype.manageSlideFixation = function (index) {
 	if(currSlide.cb !== undefined) {
 		setTimeout(function() {
 			currSlide.cb();
+			delete currSlide.cb;
 		}, 100);
 	}
 };

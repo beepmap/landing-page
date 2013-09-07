@@ -1,16 +1,21 @@
+/*jshint strict: false, browser:true, jquery: true*/
+
 $(document).ready(function() {
 	var $pics = $(".slides img"),
 		$pic0 = $(".slides img").eq(0),
-		$slides = $(".slides");
-		$phoneBubbles = $(".iphone .bubble");
+		$slides = $(".slides"),
+		$phoneBubbles = $(".iphone .bubble"),
 
 		bubble = function(selector) {
 			$(selector).toggleClass("active");
 		},
+
 		pic = function(num) {
 			$pics.eq(num).addClass("active");
-		}
-		phone = function(num) {console.log("phone", num)},
+		},
+
+		phone = function(num) {console.log("phone", num);},
+
 		slides = [
 			{},
 			{
@@ -27,44 +32,48 @@ $(document).ready(function() {
 			{
 				children: 5,
 				stopFix: true,
-				cb: function() { 
-					pic(0); 
+				cb: function() {
+					pic(0);
 					setTimeout(function() {
 						bubble(".overview .left.top");
-					}, 100);
+					}, 300);
 				}
 			},
 			{
-				cb: function() { 
-					pic(1); 
+				cb: function() {
+					pic(1);
 					bubble(".overview .left.top");
 					setTimeout(function() {
 						bubble(".overview .right.top");
-					}, 100);
+					}, 700);
 				}
 			},
 			{
-				cb: function() { 
-					pic(2); 
+				cb: function() {
+					pic(2);
 				}
 			},
 			{
-				cb: function() { 
-					pic(3); 
+				cb: function() {
+					pic(3);
 					bubble(".overview .right.top");
 					setTimeout(function() {
-						bubble(".overview .left.bottom"); 
-					}, 100);
-					
+						bubble(".overview .left.bottom");
+					}, 1200);
+
 				}
 			},
 			{
-				cb: function() { 
-					pic(4); 
+				cb: function() {
+					pic(4);
 					bubble(".overview .left.bottom");
 					setTimeout(function() {
 						bubble(".overview .right.bottom");
-					}, 100);
+					}, 700);
+
+					setTimeout(function() {
+						bubble(".overview .right.bottom");
+					}, 10000);
 				}
 			},
 			{},
@@ -74,8 +83,6 @@ $(document).ready(function() {
 	new WindowSlider("section", slides);
 
 	$(window).on("resize", function() {
-		$slides.css({
-			'margin-left': -$pic0.width()/2 + "px"
-		})
+		$slides.css('margin-left', -$pic0.width()/2 + "px");
 	}).trigger("resize");
 });

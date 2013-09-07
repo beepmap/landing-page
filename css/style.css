@@ -635,16 +635,10 @@ section {
 }
 @media screen and (max-width: 840px) and (max-height: 840px) {
   .title-headlines {
-    width: 600px;
-    height: 300px;
-    margin: -150px 0 0 -300px;
+    margin-top: -185px;
   }
   .title-headlines h1 {
-    font-size: 4.2em;
-    margin: 40px 0;
-  }
-  .title-headlines p {
-    font-size: 1.44em;
+    margin: 60px 0;
   }
 }
 .features {
@@ -822,10 +816,11 @@ section {
   width: 1000px;
   position: relative;
   margin: 0 auto;
+  height: 100%;
 }
 .slides {
   height: 90.65%;
-  left: 50%;
+  left: 50.2%;
   position: absolute;
   top: 4.5%;
 }

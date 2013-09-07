@@ -46,7 +46,7 @@
 		right: 2%;
 
 		.arrow {
-			left: -(@grid * 3);
+			left: 0;
 			top: (@grid * 2 - 5);
 
 		}
@@ -93,6 +93,22 @@
 			}
 		}
 
+		.right {
+			.arrow {
+				left: 11px;
+				top: 27px;
+
+			}
+		}
+
+		.left {
+			.arrow {
+				right: -12px;
+				top: 27px;
+
+			}
+		}
+
 		.bottom {
 			.arrow {
 				width: (34px * 0.8);
@@ -124,6 +140,28 @@
 			.arrow {
 				width: (34px * 0.6);
 				height: (113px * 0.6);
+			}
+		}
+
+		.right {
+			.arrow {
+				left: 23px;
+				top: 20px;
+
+			}
+		}
+
+		.left {
+			.arrow {
+				right: 0;
+				top: 18px;
+
+			}
+		}
+
+		.bottom {
+			.arrow {
+				bottom: 18px;
 			}
 		}
     }

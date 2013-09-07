@@ -86,6 +86,79 @@
     }
 }
 
-.phone-wrapper {
-	display: inline;
+@media screen and (max-width: (@sizeL + @sizeGap)) {
+    .overview {
+        .opportunity {
+        	width: (180px * 0.8);
+			font-size: (1.667em * 0.8);
+			line-height: (1em * 0.8);
+	    }
+
+		.left, .right {
+			.arrow {
+				width: (224px * 0.8);
+				height: (186px * 0.8);
+			}
+		}
+
+		.right {
+			right: (13% * 0.8);
+
+			.arrow {
+			    left: -3px;
+			    top: -44px;
+			}
+		}
+
+		.left {
+			left: (15% * 0.8);
+			
+			.arrow {
+			    right: 2px;
+			    top: -29px;
+			}
+		}
+    }
+}
+
+@media screen and (max-width: (@sizeM + @sizeGap)) {
+    .overview {
+        .opportunity {
+        	width: (180px * 0.6);
+			font-size: (1.667em * 0.6);
+			line-height: (1em * 0.6);
+	    }
+
+		.left, .right {
+			.arrow {
+				width: (224px * 0.6);
+				height: (186px * 0.6);
+			}
+		}
+
+		.bottom {
+			.arrow {
+				width: (34px * 0.6);
+				height: (113px * 0.6);
+			}
+		}
+
+		.right {
+			right: (13% * 0.6);
+
+			.arrow {
+			    left: 3px;
+			    top: -36px;
+			}
+		}
+
+		.left {
+			left: (15% * 0.6);
+
+			.arrow {
+			    right: 7px;
+			    top: -25px;
+			}
+		}
+    }
 }

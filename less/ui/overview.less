@@ -2,13 +2,6 @@
 	background-color: @colorGrey;
 	overflow: hidden;
 
-	h2 {
-		position: relative;
-		font-size: 3.111em;
-		line-height: 1em;
-		z-index: 1;
-	}
-
 	.left, .right {
 		.arrow {
 			width: 224px;
@@ -17,11 +10,11 @@
 	}
 
 	.left.top {
-		top: 20%;
+		top: 25%;
 		left: 8%;
 
 		.arrow {
-			top: -30px;
+			top: -42px;
 			right: -3px;
 		}
 	}
@@ -36,6 +29,14 @@
 		}
 	}
 
+	.bubble-final.left.bottom {
+		top: 54%;
+	}
+
+	.bubble-final.right.bottom {
+		bottom: 38%;
+	}
+
 	.right.top {
 	    right: 7%;
 	    top: 23%;
@@ -48,7 +49,7 @@
 
 	.right.bottom {
 	    right: 6%;
-	    bottom: 50%;
+	    bottom: 56%;
 
 		.arrow {
 		    left: -13px;
@@ -111,12 +112,9 @@
 }
 
 @media screen and (max-width: (@sizeL + @sizeGap)) {
-    .overview {
-        .opportunity {
-        	width: (180px * 0.8);
-			font-size: (1.667em * 0.8);
-			line-height: (1em * 0.8);
-	    }
+	.overview {
+		background-color: @colorGrey;
+		overflow: hidden;
 
 		.left, .right {
 			.arrow {
@@ -125,33 +123,51 @@
 			}
 		}
 
-		.right {
-			right: (13% * 0.8);
+		.left.top {
+			left: 4%;
 
 			.arrow {
-			    left: -3px;
-			    top: -44px;
+				top: -35px;
+				right: 2px;
 			}
 		}
 
-		.left {
-			left: (15% * 0.8);
+		.left.bottom {
+			left: 5%;
 
 			.arrow {
-			    right: 2px;
-			    top: -29px;
+				top: -27px;
+				right: 3px;
 			}
 		}
-    }
+
+		.right.top, .right.bottom {
+		    right: 3%;
+
+			.arrow {
+			    left: -8px;
+			    top: -40px;
+			}
+		}
+
+		.opportunity {
+			font-size: (1.667em * 0.8);
+			width: (180px * 0.8);
+		}
+	}
+
+	.viewer {
+		.iphone {
+			width: @sizeM;
+		}
+
+	}
 }
 
 @media screen and (max-width: (@sizeM + @sizeGap)) {
-    .overview {
-        .opportunity {
-        	width: (180px * 0.6);
-			font-size: (1.667em * 0.6);
-			line-height: (1em * 0.6);
-	    }
+	.overview {
+		background-color: @colorGrey;
+		overflow: hidden;
 
 		.left, .right {
 			.arrow {
@@ -160,29 +176,43 @@
 			}
 		}
 
-		.bottom {
+		.left.top {
+			left: -5%;
+
 			.arrow {
-				width: (34px * 0.6);
-				height: (113px * 0.6);
+				top: -26px;
+				right: 6px;
 			}
 		}
 
-		.right {
-			right: (13% * 0.6);
+		.left.bottom {
+			left: -4%;
 
 			.arrow {
-			    left: 3px;
-			    top: -36px;
+				top: -21px;
+				right: 7px;
 			}
 		}
 
-		.left {
-			left: (15% * 0.6);
+		.right.top, .right.bottom {
+		    right: -6%;
 
 			.arrow {
-			    right: 7px;
-			    top: -25px;
+			    left: -1px;
+			    top: -31px;
 			}
 		}
-    }
+
+		.opportunity {
+			font-size: (1.667em * 0.6);
+			width: (180px * 0.6);
+		}
+	}
+
+	.viewer {
+		.iphone {
+			width: @sizeS;
+		}
+
+	}
 }

@@ -505,7 +505,8 @@ section {
   position: relative;
   overflow: hidden;
 }
-.bubble {
+.bubble,
+.bubble-final {
   position: absolute;
   padding: 0 20px;
   -webkit-transition-property: all;
@@ -522,7 +523,8 @@ section {
   transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
   opacity: 0;
 }
-.bubble.active {
+.bubble.active,
+.bubble-final.active {
   opacity: 1;
 }
 .arrow {
@@ -531,12 +533,6 @@ section {
 .arrow svg {
   width: 100%;
   height: 100%;
-}
-.overview-wrapper,
-.car {
-  position: relative;
-  left: 50%;
-  top: 50%;
 }
 .content {
   width: 85.6%;
@@ -637,6 +633,9 @@ section {
   background-color: #30d874;
 }
 .car {
+  position: relative;
+  left: 50%;
+  top: 50%;
   width: 1000px;
   height: 500px;
   margin: -250px 0 0 -500px;
@@ -754,23 +753,17 @@ section {
   background-color: #f5f5f7;
   overflow: hidden;
 }
-.overview h2 {
-  position: relative;
-  font-size: 3.111em;
-  line-height: 1em;
-  z-index: 1;
-}
 .overview .left .arrow,
 .overview .right .arrow {
   width: 224px;
   height: 186px;
 }
 .overview .left.top {
-  top: 20%;
+  top: 25%;
   left: 8%;
 }
 .overview .left.top .arrow {
-  top: -30px;
+  top: -42px;
   right: -3px;
 }
 .overview .left.bottom {
@@ -780,6 +773,12 @@ section {
 .overview .left.bottom .arrow {
   top: -30px;
   right: -3px;
+}
+.overview .bubble-final.left.bottom {
+  top: 54%;
+}
+.overview .bubble-final.right.bottom {
+  bottom: 38%;
 }
 .overview .right.top {
   right: 7%;
@@ -791,7 +790,7 @@ section {
 }
 .overview .right.bottom {
   right: 6%;
-  bottom: 50%;
+  bottom: 56%;
 }
 .overview .right.bottom .arrow {
   left: -13px;
@@ -852,59 +851,85 @@ section {
   transition-delay: 0s;
 }
 @media screen and (max-width: 1040px) {
-  .overview .opportunity {
-    width: 144px;
-    font-size: 1.3336000000000001em;
-    line-height: 0.8em;
+  .overview {
+    background-color: #f5f5f7;
+    overflow: hidden;
   }
   .overview .left .arrow,
   .overview .right .arrow {
     width: 179.20000000000002px;
     height: 148.8px;
   }
-  .overview .right {
-    right: 10.4%;
+  .overview .left.top {
+    left: 4%;
   }
-  .overview .right .arrow {
-    left: -3px;
-    top: -44px;
-  }
-  .overview .left {
-    left: 12%;
-  }
-  .overview .left .arrow {
+  .overview .left.top .arrow {
+    top: -35px;
     right: 2px;
-    top: -29px;
+  }
+  .overview .left.bottom {
+    left: 5%;
+  }
+  .overview .left.bottom .arrow {
+    top: -27px;
+    right: 3px;
+  }
+  .overview .right.top,
+  .overview .right.bottom {
+    right: 3%;
+  }
+  .overview .right.top .arrow,
+  .overview .right.bottom .arrow {
+    left: -8px;
+    top: -40px;
+  }
+  .overview .opportunity {
+    font-size: 1.3336000000000001em;
+    width: 144px;
+  }
+  .viewer .iphone {
+    width: 800px;
   }
 }
 @media screen and (max-width: 840px) {
-  .overview .opportunity {
-    width: 108px;
-    font-size: 1.0002em;
-    line-height: 0.6em;
+  .overview {
+    background-color: #f5f5f7;
+    overflow: hidden;
   }
   .overview .left .arrow,
   .overview .right .arrow {
     width: 134.4px;
     height: 111.6px;
   }
-  .overview .bottom .arrow {
-    width: 20.4px;
-    height: 67.8px;
+  .overview .left.top {
+    left: -5%;
   }
-  .overview .right {
-    right: 7.8%;
+  .overview .left.top .arrow {
+    top: -26px;
+    right: 6px;
   }
-  .overview .right .arrow {
-    left: 3px;
-    top: -36px;
+  .overview .left.bottom {
+    left: -4%;
   }
-  .overview .left {
-    left: 9%;
-  }
-  .overview .left .arrow {
+  .overview .left.bottom .arrow {
+    top: -21px;
     right: 7px;
-    top: -25px;
+  }
+  .overview .right.top,
+  .overview .right.bottom {
+    right: -6%;
+  }
+  .overview .right.top .arrow,
+  .overview .right.bottom .arrow {
+    left: -1px;
+    top: -31px;
+  }
+  .overview .opportunity {
+    font-size: 1.0002em;
+    width: 108px;
+  }
+  .viewer .iphone {
+    width: 600px;
   }
 }
 .footer {

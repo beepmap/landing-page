@@ -4,7 +4,6 @@ $(document).ready(function() {
 	var $pics = $(".slides img"),
 		$pic0 = $(".slides img").eq(0),
 		$slides = $(".slides"),
-		$phoneBubbles = $(".iphone .bubble"),
 
 		bubble = function(selector) {
 			$(selector).toggleClass("active");
@@ -35,16 +34,16 @@ $(document).ready(function() {
 				cb: function() {
 					pic(0);
 					setTimeout(function() {
-						bubble(".overview .left.top");
+						bubble(".overview .bubble.left.top");
 					}, 300);
 				}
 			},
 			{
 				cb: function() {
 					pic(1);
-					bubble(".overview .left.top");
+					bubble(".overview .bubble.left.top");
 					setTimeout(function() {
-						bubble(".overview .right.top");
+						bubble(".overview .bubble.right.top");
 					}, 700);
 				}
 			},
@@ -56,9 +55,9 @@ $(document).ready(function() {
 			{
 				cb: function() {
 					pic(3);
-					bubble(".overview .right.top");
+					bubble(".overview .bubble.right.top");
 					setTimeout(function() {
-						bubble(".overview .left.bottom");
+						bubble(".overview .bubble.left.bottom");
 					}, 1200);
 
 				}
@@ -66,13 +65,17 @@ $(document).ready(function() {
 			{
 				cb: function() {
 					pic(4);
-					bubble(".overview .left.bottom");
+					bubble(".overview .bubble.left.bottom");
 					setTimeout(function() {
-						bubble(".overview .right.bottom");
+						bubble(".overview .bubble.right.bottom");
 					}, 700);
 
 					setTimeout(function() {
-						bubble(".overview .right.bottom");
+						bubble(".overview .bubble.right.bottom");
+						$(".bubble-final").each(function(i, el) {
+							$(this).addClass("active");
+						});
+						pic(5);
 					}, 10000);
 				}
 			},

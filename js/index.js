@@ -32,7 +32,7 @@ $(document).ready(function() {
 				children: 5,
 				stopFix: true,
 				cb: function() {
-					pic(0);
+					//pic(0);
 					setTimeout(function() {
 						bubble(".overview .bubble.left.top");
 					}, 300);

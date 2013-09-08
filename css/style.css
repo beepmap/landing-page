@@ -505,6 +505,17 @@ section {
   position: relative;
   overflow: hidden;
 }
+section:after {
+  content: "";
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  display: block;
+  bottom: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.07;
+}
 .bubble {
   position: absolute;
   padding: 0 20px;
@@ -631,14 +642,6 @@ section {
   }
   .title-headlines p {
     font-size: 1.44em;
-  }
-}
-@media screen and (max-width: 840px) and (max-height: 840px) {
-  .title-headlines {
-    margin-top: -185px;
-  }
-  .title-headlines h1 {
-    margin: 60px 0;
   }
 }
 .features {

@@ -1,0 +1,87 @@
+/* -------------------------- */
+/* Push */
+/* -------------------------- */
+.intro-effect-push:not(.notrans) .header,
+.intro-effect-push:not(.notrans) > .page1 .title,
+.intro-effect-push:not(.notrans) .page1 > div,
+.intro-effect-push:not(.notrans) .page2 > div,
+.intro-effect-push:not(.notrans) .aside {
+  -webkit-transition-property: opacity, -webkit-transform;
+  transition-property: opacity, transform;
+  -webkit-transition-duration: 1s;
+  transition-duration: 1s;
+}
+
+.intro-effect-push:not(.notrans) .header {
+  -webkit-transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+  transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+  -webkit-transition-duration: 1.2s;
+  transition-duration: 1.2s;
+}
+
+.intro-effect-push .header {
+  position: absolute;
+  z-index: 1500;
+}
+
+.intro-effect-push > .page1 .title {
+  position: relative;
+  top: auto;
+  left: auto;
+}
+
+//aside
+
+.intro-effect-push .aside {
+  opacity: 0;
+  ul { .animation(aside-back, 4600ms, 0, linear, both); }
+}
+
+.intro-effect-push.modify .aside {
+  ul { .animation(aside, 1600ms, 1000ms, linear, both); }
+  opacity: 1;
+}
+
+.intro-effect-push.modify:not(.notrans) .aside {
+  -webkit-transition-delay: 0.8s;
+  transition-delay: 0.8s;
+}
+
+
+///
+
+.intro-effect-push > .page1 .title,
+.intro-effect-push .page1 > div,
+.intro-effect-push .page2 > div {
+  .translate(0, 400px);
+  // -webkit-transform: translateY(400px);
+  // transform: translateY(400px);
+  opacity: 0;
+}
+
+.intro-effect-push.modify > .page1 .title,
+.intro-effect-push.modify .page1 > div,
+.intro-effect-push.modify .page2 > div {
+  .translate(0, 0);
+  // -webkit-transform: translateY(0);
+  // transform: translateY(0);
+  opacity: 1;
+}
+
+.intro-effect-push.modify .header {
+  opacity: 0;
+  -webkit-transform: translateY(-100%) scale(0.9);
+  transform: translateY(-100%) scale(0.9);
+}
+
+/* Delays */
+.intro-effect-push.modify:not(.notrans) > .page1 .title {
+  -webkit-transition-delay: 0.5s;
+  transition-delay: 0.5s;
+}
+
+.intro-effect-push.modify:not(.notrans) .page1 > div,
+.intro-effect-push.modify:not(.notrans) .page2 > div {
+  -webkit-transition-delay: 0.6s;
+  transition-delay: 0.6s;
+}

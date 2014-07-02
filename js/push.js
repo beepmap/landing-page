@@ -18,10 +18,6 @@
     return ((rv > -1) ? rv : undef);
   }());
 
-
-  // disable/enable scroll (mousewheel and keys) from http://stackoverflow.com/a/4770179          
-  // left: 37, up: 38, right: 39, down: 40,
-  // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
   var keys = [32, 37, 38, 39, 40], wheelIter = 0;
 
   function preventDefault(e) {
@@ -44,21 +40,14 @@
     preventDefault(e);
   }
 
-  function wheel(e) {
-    // for IE 
-    //if( ie ) {
-      //preventDefault(e);
-    //}
-  }
-
   function disable_scroll() {
-    window.onmousewheel = document.onmousewheel = wheel;
+    window.onmousewheel = document.onmousewheel;
     document.onkeydown = keydown;
     document.body.ontouchmove = touchmove;
   }
 
   function enable_scroll() {
-    window.onmousewheel = document.onmousewheel = document.onkeydown = document.body.ontouchmove = null;  
+    window.onmousewheel = document.onmousewheel = document.onkeydown = document.body.ontouchmove = null;
   }
 
   var docElem = window.document.documentElement,
@@ -90,11 +79,9 @@
     if( isAnimating ) {
       return false;
     }
-    
     if( scrollVal <= 0 && isRevealed ) {
       toggle(0);
-    }
-    else if( scrollVal > 0 && !isRevealed ){
+    } else if( scrollVal > 0 && !isRevealed ){
       toggle(1);
     }
   }
@@ -104,6 +91,7 @@
     
     if( reveal ) {
       classie.add( container, 'modify' );
+      $('body, html').scrollTop(1);
     }
     else {
       noscroll = true;
@@ -134,6 +122,31 @@
     classie.add( container, 'modify' );
   }
   
-  window.addEventListener( 'scroll', scrollPage );
-  trigger.addEventListener( 'click', function() { toggle( 'reveal' ); } );
+
+  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    
+    window.addEventListener( 'scroll', function() {
+      if( $(window).scrollTop() > 0 && isRevealed ) { 
+        window.addEventListener( 'scroll', scrollPage );
+      }
+    });
+    $(window).on("orientationchange", function(){
+      if( !isRevealed ) {
+        $(document).scrollTop(0);
+        window.removeEventListener( 'scroll', scrollPage );
+      } else {
+        window.removeEventListener( 'scroll', scrollPage );
+      }
+    });
+  } else {
+    window.addEventListener( 'scroll', scrollPage );
+  }
+  trigger.addEventListener( 'click', function() { 
+    toggle( 'reveal' );
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+      setTimeout( function() {
+        window.addEventListener( 'scroll', scrollPage );
+      }, 1200 );
+    }
+  } );
 })();

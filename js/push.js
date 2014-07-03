@@ -52,9 +52,10 @@
 
   var docElem = window.document.documentElement,
     scrollVal,
-    isRevealed, 
+    isRevealed = false, 
     noscroll, 
     isAnimating,
+    touchDevices = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
     container = document.getElementById( 'container' ),
     trigger = container.querySelector( '.trigger' );
 
@@ -91,7 +92,6 @@
     
     if( reveal ) {
       classie.add( container, 'modify' );
-      $('body, html').scrollTop(1);
     }
     else {
       noscroll = true;
@@ -108,6 +108,7 @@
         enable_scroll();
       }
     }, 1200 );
+    console.log(isRevealed);
   }
 
   // refreshing the page...
@@ -123,22 +124,21 @@
   }
   
 
-  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-    window.addEventListener( 'scroll', function() {
-      if( $(window).scrollTop() > 0 && isRevealed ) { 
-        window.addEventListener( 'scroll', scrollPage );
-      } else if( $(window).scrollTop() <= 0 && !isRevealed ) {
-        window.removeEventListener( 'scroll', scrollPage );
-        console.log('event listener removed 2');
-      }
-    });
-    $(window).on("orientationchange", function(){
-      if( !isRevealed ) {
+  if( touchDevices ) {
+    $(window).on("orientationchange", function(event){
+      if( !isRevealed && event.orientation === 'landscape') {
         $(document).scrollTop(0);
+        console.log('scrolled');
         window.removeEventListener( 'scroll', scrollPage );
         console.log('event listener removed 1');
-      } else {
+      } else if( isRevealed ) {
         window.removeEventListener( 'scroll', scrollPage );
+        if (isRevealed) {
+          window.addEventListener( 'touchmove', function() {
+            console.log('event listener added by touch');
+            window.addEventListener( 'scroll', scrollPage );
+          });
+        }
       }
     });
   } else {
@@ -146,11 +146,10 @@
   }
   trigger.addEventListener( 'click', function() { 
     toggle( 'reveal' );
-    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    if( touchDevices ) {
       setTimeout( function() {
         window.addEventListener( 'scroll', scrollPage );
       }, 1200 );
-      console.log('event listener added');
     }
   } );
 })();

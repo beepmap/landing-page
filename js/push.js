@@ -126,7 +126,7 @@
 
   if( touchDevices ) {
     $(window).on("orientationchange", function(event){
-      if( !isRevealed && event.orientation === 'landscape') {
+      if( !isRevealed ) {
         $(document).scrollTop(0);
         console.log('scrolled');
         window.removeEventListener( 'scroll', scrollPage );

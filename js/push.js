@@ -124,16 +124,19 @@
   
 
   if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-    
     window.addEventListener( 'scroll', function() {
       if( $(window).scrollTop() > 0 && isRevealed ) { 
         window.addEventListener( 'scroll', scrollPage );
+      } else if( $(window).scrollTop() <= 0 && !isRevealed ) {
+        window.removeEventListener( 'scroll', scrollPage );
+        console.log('event listener removed 2');
       }
     });
     $(window).on("orientationchange", function(){
       if( !isRevealed ) {
         $(document).scrollTop(0);
         window.removeEventListener( 'scroll', scrollPage );
+        console.log('event listener removed 1');
       } else {
         window.removeEventListener( 'scroll', scrollPage );
       }
@@ -147,6 +150,7 @@
       setTimeout( function() {
         window.addEventListener( 'scroll', scrollPage );
       }, 1200 );
+      console.log('event listener added');
     }
   } );
 })();

@@ -4171,6 +4171,13 @@ footer ul .made-in {
     font-size: 4.2em;
     margin-bottom: 0;
   }
+  .header {
+    background: url(/images/bg.jpg) no-repeat center center #08334c;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
   .header nav.top {
     padding: 15px;
     text-align: center;

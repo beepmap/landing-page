@@ -59,7 +59,8 @@ video {
   z-index: 0;
   position: absolute;
   top: 0; left: 50%;
-  width: 100%;
+  min-width: 100%;
+  min-height: 100%;
   .translate(-50%, 0);
 }
 
@@ -297,6 +298,10 @@ footer {
 
 @media only screen and (max-width: 1025px) {
   video { display: none; }
+  .header {
+    background: url(/images/bg.jpg) no-repeat center center @color-blue;
+    .background-size;
+  }
 }
 
 @media only screen and (max-width: 520px) {
@@ -315,8 +320,6 @@ footer {
     }
   }
   .header {
-    background: url(/images/bg.jpg) no-repeat center center @color-blue;
-    .background-size;
     nav.top { padding: @padding/2; }
     .title { top: 52%; }
   }
@@ -334,8 +337,6 @@ footer {
   body { font-size: 14px; }
   h1 { font-size: 4.2em; margin-bottom: 0; }
   .header {
-    background: url(/images/bg.jpg) no-repeat center center @color-blue;
-    .background-size;
     nav.top { padding: @padding/2; text-align: center; }
     .title { 
       top: 56%;
